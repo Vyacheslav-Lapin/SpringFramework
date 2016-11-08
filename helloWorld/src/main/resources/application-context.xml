@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="person" class="lab.model.UsualPerson">
-        <property name="name" value="John Smith"/>
-        <property name="age" value="35"/>
-        <property name="country" ref="country"/>
-    </bean>
+    <bean id="person1" class="lab.model.UsualPerson"
+          p:name="John Smith"
+          p:age="35"
+          p:country-ref="country"
+          p:height="1.78F"
+          p:programmer="true"
+          p:contacts-ref="list"/>
 
-    <bean id="country" class="lab.model.Country">
-        <property name="id" value="1"/>
-        <property name="name" value="Russia"/>
-        <property name="codeName" value="RU"/>
-    </bean>
+    <bean id="person" class="lab.model.UsualPerson"
+          p:name="Jack Smith"
+          p:age="30"
+          p:country-ref="country"
+          p:height="1.75F"
+          p:programmer="false"
+          p:contacts-ref="list"/>
+
+    <bean id="country" class="lab.model.Country"
+          p:id="1"
+          p:name="Russia"
+          p:codeName="RU"/>
+
+    <util:list id="list" value-type="java.lang.String">
+        <value>asd@asd.ru</value>
+        <value>+7-234-456-67-89</value>
+    </util:list>
 </beans>

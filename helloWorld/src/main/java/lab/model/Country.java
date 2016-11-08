@@ -1,9 +1,11 @@
 package lab.model;
 
 import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
+@Accessors(chain = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

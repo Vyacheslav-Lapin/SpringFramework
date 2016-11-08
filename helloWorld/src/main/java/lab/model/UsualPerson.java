@@ -1,13 +1,15 @@
 package lab.model;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.List;
 
+@Accessors(chain = true)
 @Data
 @Entity
-public class UsualPerson implements Person {
+public class UsualPerson implements Person<UsualPerson> {
     @Id
     @Column
     private int id;
