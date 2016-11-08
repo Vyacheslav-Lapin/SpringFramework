@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <context:component-scan base-package="lab.model"/>
+    <context:property-placeholder location="person.properties"/>
+
+	<aop:aspectj-autoproxy/>
+
+    <bean id="bar" class="lab.model.ApuBar" />
+
+    <bean id="customer" class="lab.model.Customer">
+        <property name="name" value="Homer" />
+        <property name="broke" value="false" />
+    </bean>
+
+    <bean id="politeness" class="lab.aop.Politeness"/>
+
+    <util:list id="contacts" value-type="java.lang.String">
+        <value>asd@asd.ru</value>
+        <value>+7-234-456-67-89</value>
+    </util:list>
+
+<!--<bean id="person2" class="lab.model.UsualPerson"/>-->
+
+    <!--<bean id="person" class="lab.model.UsualPerson"-->
+          <!--p:name="${name}"-->
+          <!--p:age="${age}"-->
+          <!--p:height="${height}"-->
+          <!--p:programmer="${programmer}">-->
+        <!--<property name="country">-->
+            <!--<bean class="lab.model.Country"-->
+                  <!--c:id="1"-->
+                  <!--c:name="Russia"-->
+                  <!--c:codeName="RU"/>-->
+        <!--</property>-->
+        <!--<property name="contacts">-->
+            <!--<list>-->
+                <!--<value>asd@asd.ru</value>-->
+                <!--<value>+7-234-456-67-89</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+</beans>

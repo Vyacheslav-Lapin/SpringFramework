@@ -13,7 +13,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:application-context.xml")
+@ContextConfiguration("application-context.xml")
 public class AopAspectJTest {
 
 	@Autowired
@@ -24,14 +24,14 @@ public class AopAspectJTest {
 
     @Before
     public void setUp() throws Exception {
-    	
         bar.sellSquishee(customer);
     }
 
     @Test
     public void testBeforeAdvice() {
-        assertTrue("Before advice is not good enought...", AopLog.getStringValue().contains("Hello"));
-        assertTrue("Before advice is not good enought...", AopLog.getStringValue().contains("How are you doing?"));
+        assertTrue("Before advice is not good enough...",
+                AopLog.getStringValue().contains("Hello"));
+        assertTrue("Before advice is not good enough...", AopLog.getStringValue().contains("How are you doing?"));
         System.out.println(AopLog.getStringValue());
     }
 

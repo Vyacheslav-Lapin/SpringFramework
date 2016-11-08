@@ -15,8 +15,10 @@ public class Politeness {
         AopLog.append("Hello " + ((Customer) joinPiont.getArgs()[0]).getName() + ". How are you doing? \n");
     }
 
-    @AfterReturning(pointcut = "execution(* sellSquishee(..))",
-            returning = "retVal", argNames = "retVal")
+    @AfterReturning(
+            pointcut = "execution(* sellSquishee(..))",
+            returning = "retVal",
+            argNames = "retVal")
     public void askOpinion(Object retVal) {
         AopLog.append("Is " + ((Squishee) retVal).getName() + " Good Enough? \n");
     }
@@ -25,6 +27,7 @@ public class Politeness {
         AopLog.append("Hmmm... \n");
     }
 
+    @After("execution(* sellSquishee(..))")
     public void sayGoodBye() {
         AopLog.append("Good Bye! \n");
     }
