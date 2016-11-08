@@ -1,41 +1,44 @@
 import lab.model.Country;
-import lab.model.Person;
 import lab.model.UsualPerson;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
-public class HelloWorldTest {
-
-	protected static final String APPLICATION_CONTEXT_XML_FILE_NAME =
-			"application-context.xml";
-
-	private Person expectedPerson;
+public class SimpleAppTest {
+	
+	protected static final String APPLICATION_CONTEXT_XML_FILE_NAME = "classpath:application-context.xml";
 
 	private AbstractApplicationContext context;
+
+	private UsualPerson expectedPerson;
 
 	@Before
 	public void setUp() throws Exception {
 		context = new ClassPathXmlApplicationContext(
-		        APPLICATION_CONTEXT_XML_FILE_NAME);
+				APPLICATION_CONTEXT_XML_FILE_NAME);
 		expectedPerson = getExpectedPerson();
 	}
 
 	@Test
 	public void testInitPerson() {
-		Person person = context.getBean(
-		        "person", Person.class);
+		UsualPerson person = (UsualPerson) context.getBean("person");
+//		FYI: Another way to achieve the bean
+//		person = context.getBean(UsualPerson.class);
 		assertEquals(expectedPerson, person);
 		System.out.println(person);
 	}
 
-	private Person getExpectedPerson() {
+	private UsualPerson getExpectedPerson() {
 		UsualPerson person = new UsualPerson();
 		person.setAge(35);
+		person.setHeight(1.78F);
+		person.setProgrammer(true);
 		person.setName("John Smith");
 
 		Country country = new Country();
@@ -45,12 +48,12 @@ public class HelloWorldTest {
 
 		person.setCountry(country);
 
+		List<String> contacts = new ArrayList<String>();
+		contacts.add("asd@asd.ru");
+		contacts.add("+7-234-456-67-89");
+
+		person.setContacts(contacts);
+
 		return person;
-	}
-	
-	@After
-	public void tearDown() throws Exception{
-		if (context != null)
-			context.close();
 	}
 }
