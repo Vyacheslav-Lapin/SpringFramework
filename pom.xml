@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.luxoft.training.spring.fundamentals</groupId>
-    <artifactId>SpringFramework</artifactId>
+    <groupId>com.epam.trainings.spring.fundamentals</groupId>
+    <artifactId>SpringFundamentals3</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -18,6 +18,30 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-asm</artifactId>
+            <version>LATEST</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -45,9 +69,16 @@
         </dependency>
 
         <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>LATEST</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
