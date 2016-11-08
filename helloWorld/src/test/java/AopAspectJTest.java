@@ -4,26 +4,32 @@ import lab.model.Bar;
 import lab.model.Customer;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("application-context.xml")
+// TODO: 08/11/2016 почему не находит в мейне конфиг?
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration("classpath:application-context1.xml")
 public class AopAspectJTest {
 
-	@Autowired
+//	@Autowired
     private Bar bar;
     
-	@Autowired
+//	@Autowired
     private Customer customer;
 
     @Before
     public void setUp() throws Exception {
+        ApplicationContext applicationContext =
+                new ClassPathXmlApplicationContext(
+                        "application-context1.xml");
+
+        bar = applicationContext.getBean(Bar.class);
+        customer = applicationContext.getBean(Customer.class);
+
         bar.sellSquishee(customer);
     }
 
