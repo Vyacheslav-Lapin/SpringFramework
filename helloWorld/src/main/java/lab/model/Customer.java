@@ -1,17 +1,32 @@
 package lab.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
-
-@Accessors(chain = true)
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Customer implements Person {
     private String name;
     private boolean broke;
+
+    public Customer() {
+    }
+
+    public Customer(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isBroke() {
+        return broke;
+    }
+
+    public void setBroke(boolean broke) {
+        this.broke = broke;
+    }
+
+    public Customer setName(String name) {
+        this.name = name;
+        return this;
+    }
 
     public void sayHello(Person person) {
     }

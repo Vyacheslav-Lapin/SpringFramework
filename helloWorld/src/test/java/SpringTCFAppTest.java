@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration("classpath:application-context1.xml")
+//@ContextConfiguration("classpath:application-context.xml")
 @ContextConfiguration(classes = HelloWorldConfig.class)
 public class SpringTCFAppTest {
 	

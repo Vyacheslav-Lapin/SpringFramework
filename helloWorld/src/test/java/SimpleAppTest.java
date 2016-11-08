@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class SimpleAppTest {
 	
-//	private static final String APPLICATION_CONTEXT_XML_FILE_NAME = "application-context1.xml";
+//	private static final String APPLICATION_CONTEXT_XML_FILE_NAME = "application-context.xml";
 //	private BeanFactory context = new ClassPathXmlApplicationContext(APPLICATION_CONTEXT_XML_FILE_NAME);
 	private BeanFactory context =
 		new GenericGroovyApplicationContext("classpath:beans.groovy");
