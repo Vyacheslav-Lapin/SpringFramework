@@ -1,1 +1,5 @@
-create table country( id identity , name varchar (255) , code_name varchar (255) );
+CREATE TABLE country (
+  id        IDENTITY,
+  name      VARCHAR(255),
+  code_name VARCHAR(255)
+);

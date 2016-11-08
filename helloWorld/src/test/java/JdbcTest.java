@@ -21,9 +21,9 @@ public class JdbcTest{
 	@Autowired
 	private CountryDao countryDao;
 	
-    private List<Country> expectedCountryList = new ArrayList<Country>();
-    private List<Country> expectedCountryListStartsWithA = new ArrayList<Country>();
-    private Country countryWithChangedName = new Country(1, "Russia", "RU");
+    private List<Country> expectedCountryList = new ArrayList<>();
+    private List<Country> expectedCountryListStartsWithA = new ArrayList<>();
+    private Country countryWithChangedName = new Country(7, "Russia", "RU");
 
     @Before
     public void setUp() throws Exception {
