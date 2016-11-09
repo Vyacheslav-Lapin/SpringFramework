@@ -8,28 +8,25 @@ import lombok.experimental.Accessors;
 import javax.persistence.*;
 import java.io.Serializable;
 
-import static javax.persistence.GenerationType.AUTO;
-
 @Accessors(chain = true)
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Entity
-@Table(name = "Country")
+@Table(name = "country")
 public class Country implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-
     @Column
-	private String name;
-
+    private String name;
     @Column(name = "code_name")
-	private String codeName;
+    private String codeName;
 
-	public Country(String name, String codeName) {
-		this.name = name;
-		this.codeName = codeName;
-	}
+    public Country(String name, String codeName) {
+        this.name = name;
+        this.codeName = codeName;
+    }
+
 }
