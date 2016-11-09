@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @Accessors(chain = true)
 @Entity
-@Component
+//@Component
 public class UsualPerson implements Person {
     @Id
     @Column
