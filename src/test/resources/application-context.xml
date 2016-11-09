@@ -19,7 +19,8 @@
 		<jdbc:script location="classpath:db-schema.sql"/>	
 	</jdbc:embedded-database>
 
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
         p:dataSource-ref="dataSource"/>
 
     <tx:annotation-driven/>

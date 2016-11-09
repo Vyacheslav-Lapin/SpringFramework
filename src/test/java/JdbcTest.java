@@ -23,7 +23,7 @@ public class JdbcTest{
 	
     private List<Country> expectedCountryList = new ArrayList<Country>();
     private List<Country> expectedCountryListStartsWithA = new ArrayList<Country>();
-    private Country countryWithChangedName = new Country(1, "Russia", "RU");
+    private Country countryWithChangedName = new Country(7, "Russia", "RU");
 
     @Before
     public void setUp() throws Exception {
