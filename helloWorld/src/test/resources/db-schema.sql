@@ -1,5 +1,5 @@
 CREATE TABLE country (
-  id        IDENTITY,
+  id IDENTITY,
   name      VARCHAR(255),
   code_name VARCHAR(255)
 );
